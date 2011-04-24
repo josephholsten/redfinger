@@ -1,5 +1,5 @@
-$:.unshift File.expand_path("../lib", __FILE__)
-require "redfinger/version"
+$:.unshift File.expand_path('../lib', __FILE__)
+require 'redfinger/version'
 
 Gem::Specification.new do |s|
   s.name             = 'redfinger'
@@ -18,10 +18,11 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = %w[ LICENSE README.rdoc ]
   s.require_paths    = %w[ lib ]
 
-  s.add_runtime_dependency 'rest-client', ">= 1.5.0"
-  s.add_runtime_dependency 'nokogiri', ">= 1.4.0"
+  s.add_runtime_dependency 'rest-client', '>= 1.5.0'
+  s.add_runtime_dependency 'nokogiri', '>= 1.4.0'
   s.add_runtime_dependency 'hashie'
-  s.add_development_dependency 'rspec', ">= 1.2.9"
+  s.add_development_dependency 'rspec', '>= 1.2.9'
   s.add_development_dependency 'webmock'
+  s.add_development_dependency 'addressable', '2.2.4'
 end
 
