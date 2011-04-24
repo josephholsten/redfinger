@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.summary          = 'A Ruby WebFinger client.'
   s.description      = 'A Ruby Webfinger client'
 
-  s.files            = `git ls-files`.split('\n')
-  s.executables      = `git ls-files -- bin/*`.split('\n').map{ |f| File.basename(f) }
+  s.files            = `git ls-files`.split("\n")
+  s.executables      = s.files.grep(/^bin/) { |f| File.basename(f) }
   s.extra_rdoc_files = %w[ LICENSE README.rdoc ]
   s.require_paths    = %w[ lib ]
 
