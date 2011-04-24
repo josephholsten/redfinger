@@ -24,5 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '>= 1.2.9'
   s.add_development_dependency 'webmock'
   s.add_development_dependency 'addressable', '2.2.4'
+  s.add_development_dependency 'cucumber'
+  s.add_development_dependency 'aruba'
 end
 

@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+libdir = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
+
+require 'pathname'
+require 'redfinger'
+
+if ARGV.length == 0
+  basename = Pathname.new(__FILE__).basename
+	puts "Usage: #{basename} user@host"
+	exit 0
+end
