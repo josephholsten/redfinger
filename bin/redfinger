@@ -22,3 +22,25 @@ if ARGV[0].match /^-d/
 else
   log.level = Logger::WARN
 end
+
+raw_acct = ARGV[0]
+disco = Redfinger.finger(raw_acct)
+
+log.debug 'finger: ' << disco.inspect
+log.debug 'links: ' << disco.links.inspect
+
+KNOWN_RELS = {
+  'OpenID' => 'http://specs.openid.net/auth/',
+  'OpenID Provider' => 'http://specs.openid.net/auth/2.0/provider',
+  'OpenID Provider' => 'openid2.provider',
+  "Profile" => 'http://webfinger.net/rel/profile-page',
+  "Profile data" => 'http://portablecontacts.net/spec/1.0#me',
+  "Contacts" => 'http://portablecontacts.net/spec/1.0',
+  "Described by" => 'describedby', # from POWDER
+  "Webfinger/LRDD" => 'lrdd'
+}
+
+KNOWN_RELS.each do |name, rel|
+  link = disco.links.find {|l| l.rel == rel }
+  puts name + ': ' + link.href if link
+end
